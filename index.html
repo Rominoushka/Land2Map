@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>Land2Map · Programmation palette</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Land2Map · Programmation palette</h1>
+      <p>Validation rapide du MCD, des sélections, icônes, blocs DWG, attributs et listes.</p>
+    </div>
+    <button id="syncBtn" class="ghost">Git</button>
+  </header>
+
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="Recherche : AEP, vanne, regard, _sel…">
+    <select id="decisionFilter">
+      <option value="">Toutes décisions</option>
+      <option value="À valider">À valider</option>
+      <option value="Validé">Validé</option>
+      <option value="À corriger">À corriger</option>
+      <option value="Exclu">Exclu</option>
+    </select>
+    <select id="groupFilter"><option value="">Tous groupes</option></select>
+    <button id="exportBtn">Exporter JSON</button>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="stats" id="stats"></div>
+      <nav id="netNav"></nav>
+    </aside>
+    <main id="main"></main>
+  </div>
+
+  <dialog id="editDialog" class="dialog wide">
+    <form method="dialog" class="dialog-head">
+      <div><h2 id="dialogTitle"></h2><p id="dialogSub"></p></div>
+      <button>Fermer</button>
+    </form>
+    <div class="tabs">
+      <button data-tab="general" class="active">Général</button>
+      <button data-tab="attrs">Attributs</button>
+      <button data-tab="lists">Listes</button>
+    </div>
+    <div id="tab-general" class="tab active"></div>
+    <div id="tab-attrs" class="tab"></div>
+    <div id="tab-lists" class="tab"></div>
+  </dialog>
+
+  <dialog id="syncDialog" class="dialog">
+    <form method="dialog" class="dialog-head">
+      <div><h2>Sauvegarde GitHub</h2><p>La sauvegarde écrit un commit dans le repository.</p></div>
+      <button>Fermer</button>
+    </form>
+    <div class="form-grid">
+      <label>Repository<input id="repoInput" value="Rominoushka/Land2Map"></label>
+      <label>Branche<input id="branchInput" value="main"></label>
+      <label>Fichier de sauvegarde<input id="statePathInput" value="data/validation_state.json"></label>
+      <label>Token GitHub<input id="tokenInput" type="password" placeholder="Fine-grained token avec Contents: read/write"></label>
+    </div>
+    <p class="hint">Le token reste dans ce navigateur. Il n’est pas publié dans le dépôt.</p>
+    <div class="actions">
+      <button id="saveSettingsBtn">Mémoriser</button>
+      <button id="loadGitBtn">Charger depuis Git</button>
+      <button id="saveGitBtn" class="primary">Sauvegarder dans Git</button>
+    </div>
+    <pre id="syncLog"></pre>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
