@@ -1,1 +1,1 @@
-{"objects":[],"netCounts":{},"netLabels":{},"listRegistry":{}}
+{"objects":[{"uid":"AEP_TEST","reseau":"AEP","code":"AEP_TEST","libelle":"Test","groupe_palette":"Test","famille_mcd":"test","type_mcd":"test","selection_attendue":"aep_test_sel","calque":"ECA_AEP_TEST","bloc_dwg":"","statut_global":"A corriger","statut_selection":"A corriger","statut_icone":"A corriger","statut_dwg":"A corriger","attrs":[]}],"netCounts":{"AEP":1},"netLabels":{"AEP":"AEP - Eau potable"},"listRegistry":{}}
