@@ -74,5 +74,23 @@
   </dialog>
 
   <script src="app.js"></script>
+  <script>
+    (() => {
+      const clean = () => {
+        document.querySelectorAll('.pill.warn').forEach(el => {
+          if (el.textContent.trim() === 'Standard') el.remove();
+        });
+        document.querySelectorAll('.net-head p').forEach(p => {
+          p.textContent = p.textContent.replace(
+            'Les linéaires existent en Standard, Classe A/B/C, Abandonné et Aérien.',
+            'Pour les linéaires : bouton principal + variantes Classe A/B/C, Abandonné et Aérien.'
+          );
+        });
+      };
+      new MutationObserver(clean).observe(document.body, { childList: true, subtree: true });
+      window.addEventListener('load', clean);
+      setInterval(clean, 500);
+    })();
+  </script>
 </body>
 </html>
