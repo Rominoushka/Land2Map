@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Land2Map attributs v13</title></head>
+<body style="font-family:system-ui;padding:24px;line-height:1.45">
+<h1>Patch attributaire Land2Map v13</h1>
+<p>À appliquer dans la génération des attributs pour tous les objets ponctuels : ouvrages, affleurants, équipements et supports.</p>
+<h2>Attributs communs GNSS / coordonnées</h2>
+<pre>
+x            Nombre      Coordonnée X
+y            Nombre      Coordonnée Y
+z            Nombre      Altitude Z
+gnss_hdop    Nombre      GNSS HDOP
+gnss_vdop    Nombre      GNSS VDOP
+gnss_pdop    Nombre      GNSS PDOP
+</pre>
+<h2>Attributs AutoCAD pour blocs ponctuels</h2>
+<pre>
+acad_echelle   Nombre    Échelle AutoCAD
+acad_ech_x     Nombre    Échelle X AutoCAD
+acad_ech_y     Nombre    Échelle Y AutoCAD
+acad_rotation  Nombre    Rotation AutoCAD
+</pre>
+<h2>Règle</h2>
+<p>Les attributs GNSS / X Y Z s’appliquent à tous les objets levés. Les attributs AutoCAD s’appliquent aux objets insérés comme blocs : ouvrages, affleurants, équipements et supports. Ils ne s’appliquent pas aux tronçons linéaires.</p>
+<h2>Fonction JS à remplacer</h2>
+<pre>
+function geom(){
+  return [
+    A('x','Nombre','Coordonnée X'),
+    A('y','Nombre','Coordonnée Y'),
+    A('z','Nombre','Altitude Z'),
+    A('gnss_hdop','Nombre','GNSS HDOP'),
+    A('gnss_vdop','Nombre','GNSS VDOP'),
+    A('gnss_pdop','Nombre','GNSS PDOP')
+  ];
+}
+
+function acad(){
+  return [
+    A('acad_echelle','Nombre','Échelle AutoCAD'),
+    A('acad_ech_x','Nombre','Échelle X AutoCAD'),
+    A('acad_ech_y','Nombre','Échelle Y AutoCAD'),
+    A('acad_rotation','Nombre','Rotation AutoCAD')
+  ];
+}
+
+function attrs(n,f,t,F={}){
+  let a=[
+    A('id','UUID','Identifiant'),
+    A('res','Liste','Réseau','LST_RESEAU',n),
+    A(f.slice(0,3)+'_type','Texte','Type','',t),
+    A('mlev','Liste','Mode levé','LST_MODE_LEVE'),
+    A('clas','Liste','Classe','LST_CLASSE_PRECISION',F.clas||''),
+    A('etat','Liste','État','LST_ETAT_RESEAU',F.etat||''),
+    A('pose','Liste','Pose','LST_POSE',F.pose||''),
+    A('obs','Texte','Observation')
+  ].concat(geom());
+
+  if(f !== 'troncon'){
+    a = a.concat(acad());
+  }
+
+  return a;
+}
+</pre>
+</body></html>
