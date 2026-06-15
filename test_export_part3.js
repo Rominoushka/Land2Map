@@ -1,0 +1,2 @@
+function deliver(n,c){navigator.clipboard&&navigator.clipboard.writeText(c);alert(n+' copié dans le presse-papiers')}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
