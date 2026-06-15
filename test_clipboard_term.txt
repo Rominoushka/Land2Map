@@ -1,0 +1,1 @@
+function deliver(n,c){navigator.clipboard.writeText(c);alert(n+' copié dans le presse-papiers')}
