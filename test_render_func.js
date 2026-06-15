@@ -1,0 +1,1 @@
+function render(){grp.innerHTML='<option value="">Tous groupes</option>'+[...new Set(O.map(o=>o.g))].map(g=>'<option>'+g+'</option>').join('');nav.innerHTML=C.nets.map(n=>'<button class="'+(n==cur?'on':'')+'" data-n="'+n+'">'+n+'<br><span class=muted>'+C.names[n]+'</span></button>').join('');$$('#nav button').forEach(b=>b.onclick=()=>{cur=b.dataset.n;draw()});stamp();draw()}
