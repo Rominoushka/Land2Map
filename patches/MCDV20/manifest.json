@@ -1,0 +1,37 @@
+{
+  "package": "Land2Map_MCDV20_objets_exports_patch.zip",
+  "version": "MCDV20",
+  "generated_files": [
+    "objets_land2map_v20.csv",
+    "attributs_land2map_v20.csv",
+    "listes_land2map_v20.csv",
+    "PA_Objet_patch_MCDV20.csv",
+    "PA_PaletteItem_patch_MCDV20.csv",
+    "patch_sql_theorique_mcdv20.sql",
+    "inventaire_theme_reel.csv",
+    "modele_mcdv20.json",
+    "README.md"
+  ],
+  "counts": {
+    "objets": 337,
+    "attributs": 6955
+  },
+  "attribute_prefixes": {
+    "troncon_canalisation_conduite": "trc_",
+    "cable": "che_",
+    "fourreau": "fou_",
+    "branchement": "brt_",
+    "ouvrage": "ouv_",
+    "affleurant": "afl_",
+    "equipement": "eqp_",
+    "support": "sup_"
+  },
+  "aerial_variant_allowed_networks": ["ECL", "BTA", "HTA", "HTB", "TEL", "CFA", "SGN"],
+  "rules": [
+    "calque forced and hidden",
+    "*_type forced and hidden",
+    "Classe A/B/C variants force *_classe",
+    "Abandonne variant forces *_etat",
+    "Aerien variant forces *_pose only for allowed networks"
+  ]
+}
