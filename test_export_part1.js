@@ -1,0 +1,1 @@
+function expJSON(){deliver('land2map_validation_v23.json',JSON.stringify({version:'v23',date:new Date().toISOString(),objets:O.map(patch)},null,2))}
