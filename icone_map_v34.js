@@ -1,0 +1,1 @@
+$(cat /mnt/data/icone_map_v34.js)
