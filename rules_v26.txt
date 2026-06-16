@@ -1,3 +1,13 @@
 const cat=window['L2M_CAT'];
 cat['vals']=cat['vals']||{};
+cat['vals']['LST_ETAT_RESEAU']=(cat['vals']['LST_ETAT_RESEAU']||[]).filter(function(v){return !String(v).toLowerCase().startsWith('proj')});
 cat['vals']['LST_OUI_NON']=['Oui','Non','Inconnu'];
+function has(o,c){return o['attrs'].some(function(a){return a['c']==c})}
+function add(o,a){if(!has(o,a['c']))o['attrs'].push(a)}
+O.forEach(function(o){
+ var r=o['t'].indexOf('regard')>=0, af=o['f']=='affleurant', acc=r||o['t'].indexOf('chambre')>=0||o['t'].indexOf('boite_branchement')>=0, p=pref(o['f'],o['t']);
+ o['attrs']=o['attrs'].filter(function(a){return ['gnss_fix','gnss_prec','src_leve'].indexOf(a['c'])<0});
+ if(r||af)o['attrs']=o['attrs'].filter(function(a){return a['c']!=p+'_pose'});
+ if(acc){add(o,A('rad_prof','Nombre','Profondeur radier','','',true,false,false,true));add(o,A('descend','Liste','Descenderie','LST_OUI_NON','',true,false,false,true));}
+ if(r||af)add(o,A('tam_enrob','Liste','Tampon sous enrobe','LST_OUI_NON','',true,false,false,true));
+});
