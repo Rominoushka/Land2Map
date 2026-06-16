@@ -1,0 +1,1 @@
+window.L2M_MANIFEST={version:'v47',date:'2026-06-16',modules:['catalogue_v23','app_v23_core','patch_v42','patch_v43','interface_v47','render','modal','export'],notes:'Interface validation : navigation groupee, tableau de bord, badges metier, CSS externe.'};
