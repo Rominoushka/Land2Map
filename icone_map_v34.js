@@ -1,1 +1,1 @@
-$(cat /mnt/data/icone_map_v34.js)
+window.L2M_ICON_RULES={version:34,source:'ECA_NG2026_Icone_COMPLETE_AVEC_MANQUANTS.zip',unmatched:['BTA_APPUI','HTA_APPUI'],aliases:{bouche_cle:'bouche_a_cle',tel_cfa_chambre_tirage:'tel_cfa_chambre',tel_cfa_regard_circulaire:'tel_cfa_regard',tel_cfa_regard_rectangulaire:'tel_cfa_regard',hta_htb_poste:'hta_htb_poste_transformation',hta_htb_transformateur:'hta_htb_poste_transformation'},base_lineaires:['AEP_BRANCHEMENT','EPL_BRANCHEMENT','UNI_BRANCHEMENT']};
