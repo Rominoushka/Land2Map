@@ -5,8 +5,6 @@
   function has(o,c){return o.attrs&&o.attrs.some(function(a){return a.c===na(c)})}
   function ad(o,a){if(o&&o.attrs&&!has(o,a.c))o.attrs.push(a)}
   C.vals.lst_ano_detec=['annotation','anomalie_chantier','anomalie_reseau','perte_signal','reseau_non_detecte','incoherence_plan_terrain','acces_impossible','doute_geometrie','doute_profondeur','autre'];
-  C.vals.lst_ano_grav=['faible','moyenne','forte','bloquante'];
-  C.vals.lst_ano_stat=['a_traiter','transmis','resolu'];
   C.vals.lst_ano_reseau=uniq((C.nets||[]).concat(['autre']));
   O=O.filter(function(o){return !/_ANOMALIE_DETECTION$/.test(String(o.code||''))});
   if(!C.nets.includes('GEN'))C.nets.unshift('GEN');
@@ -26,8 +24,7 @@
   ad(o,A('ano_reseau','Liste','Reseau concerne','lst_ano_reseau','',true,false,true,true));
   ad(o,A('ano_type','Liste','Type anomalie','lst_ano_detec','',true,false,true,true));
   ad(o,A('ano_desc','Texte','Description terrain','','',true,false,true,true));
-  ad(o,A('ano_grav','Liste','Gravite','lst_ano_grav','',true,false,false,true));
-  ad(o,A('ano_stat','Liste','Statut','lst_ano_stat','a_traiter',true,false,false,true));
   ad(o,A('photo','Photo','Photo','','',true,false,false,true));
+  o.attrs=o.attrs.filter(function(a){return a.c!=='ano_grav'&&a.c!=='ano_stat'});
   (o.attrs||[]).forEach(function(a){if(a.c==='calque')a.val='ECA_GEN_ANNOTATION';if(a.c==='eqp_type')a.val='anomalie_detection'});
 })();
