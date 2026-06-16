@@ -1,1 +1,1 @@
-test
+window.test=1;
