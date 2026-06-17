@@ -1,1 +1,1 @@
-window.L2M_MANIFEST={version:'v49',date:'2026-06-16',modules:['catalogue_v23','app_v23_core','patch_v42','patch_v43','interface_v47','interface_v48','interface_v49','render','modal','export'],notes:'Couches MCD limitees a 10 caracteres et bouton de vue couches rendu visible.'};
+window.L2M_MANIFEST={version:'v50',date:'2026-06-16',notes:'couches_mcd courtes en minuscules'};
